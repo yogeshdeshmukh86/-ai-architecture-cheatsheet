@@ -15,11 +15,11 @@ Select a pattern to explore its control flow, when to use it, a short line to re
 
 | Pattern | Main idea |
 | --- | --- |
-| Single agent | One reasoning role handles a coherent task. |
+| Single agent | One agent, one reasoning role; it may handle multiple related tasks and use tools. |
 | Tool-using agent | The agent decides when to call tools or APIs. |
-| Workflow + agent | A predefined sequence includes a reasoning step. |
+| Workflow + agent | The workflow sets the sequence; an agent reasons within a step. |
 | Router | Classify a request, then send it down the appropriate path. |
-| Evaluator | Check a draft against defined criteria before delivery. |
+| Evaluator | Draft, check against criteria, then revise, escalate or deliver. |
 | Supervisor–worker | Delegate to specialist reasoning roles and synthesise their results. |
 
 These are practical teaching examples. Patterns can overlap, and the number of agents depends on the implementation.
@@ -29,7 +29,8 @@ These are practical teaching examples. Patterns can overlap, and the number of a
 - **Follow the flow:** animated arrows show control, tool calls, and result or review feedback.
 - **Compare the same request:** each pattern handles an illustrative customer-support enquiry about a late order.
 - **Understand the harness:** the **“Where does the harness fit?”** toggle highlights the surrounding system and explains its role in the selected pattern.
-- **Think about quality:** each pattern includes a checkpoint covering evidence, validation, failure handling, routing, review, or coordination.
+- **Explore the components:** select a diagram box to see its role, input and output.
+- **Think about quality:** each pattern includes quality checkpoints and suggested AI evals, with expandable evaluation guidance.
 
 ## What is an agent harness?
 
@@ -37,7 +38,7 @@ The harness is the software around the model that supplies context and tools, ma
 
 The guide illustrates instructions and context, tools and data access, memory and state, routing and orchestration, permissions and guardrails, and evaluation and traces.
 
-**Count reasoning roles, not boxes.** Tools, APIs, and memory are supporting components. A router or evaluator may use fixed rules or an independent reasoning role. The harness is not an extra agent.
+**Count reasoning roles, not boxes.** A single agent can use tools or sit inside a workflow. A model call is not automatically an agent, and a tool can expose another agent. Count the independently acting agents in the actual implementation. The harness is not an extra agent.
 
 ## Use locally
 
@@ -66,6 +67,8 @@ Published with **GitHub Pages** from the `main` branch and repository root. Chan
 
 - [Building effective agents — Anthropic](https://www.anthropic.com/research/building-effective-agents)
 - [Harness definition in evaluation guidance — OpenAI](https://openai.com/index/trustworthy-third-party-evaluations-foundations/)
+- [Agents as tools — OpenAI Agents SDK](https://openai.github.io/openai-agents-python/tools/)
+- [Demystifying evals for AI agents — Anthropic](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)
 
 ## Connect
 
