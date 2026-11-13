@@ -3,21 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore six practical AI agent architecture patterns with animated diagrams, customer-support examples and an agent harness view. Created by Yogesh Deshmukh.">
+<meta property="og:title" content="Practical AI Agent Architecture Patterns | Yogesh Deshmukh">
+<meta property="og:description" content="Six patterns. One practical example. Explore control flow, quality checkpoints and the agent harness.">
+<meta property="og:type" content="website">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>ai-architecture-cheatsheet.html</title>
-<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+<title>AI Agent Architecture Patterns | Yogesh Deshmukh</title>
+<style>
+:root{color-scheme:light;background:#f4f6fa;color:#14243c;font-family:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}html,body{margin:0}body{padding:0 32px;background:#f4f6fa}
+.shell{width:100%;max-width:1400px;margin:0 auto}
+.brandbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:21px 0 17px;border-bottom:1px solid #dbe2ed}
+.identity{display:flex;gap:11px;align-items:center}.monogram{display:grid;place-items:center;background:#142b4c;color:white;width:37px;height:37px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:1px}
+.brandname{font-size:12px;font-weight:700;letter-spacing:1.3px;line-height:1.6}.brandtopic{font-size:10px;color:#6d7c92;letter-spacing:.7px}
+.brandbar a{font-size:12px;color:#305a93;text-decoration:none;font-weight:600}.brandbar a:hover{text-decoration:underline}
+iframe{display:block;width:100%;height:920px;margin:0;border:0;background:#f4f6fa}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:18px;border-top:1px solid #dbe2ed;padding:17px 0 20px;font-size:11px;color:#6d7c92;line-height:1.7}.footer strong{color:#233b5e;font-weight:600}.footer nav{display:flex;gap:16px;flex-wrap:wrap}.footer a{color:#536b8c;text-decoration:none}.footer a:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid #2365df;outline-offset:4px}
+@media(max-width:700px){body{padding:0 16px}.brandbar{padding:15px 0}.brandname{font-size:10px;letter-spacing:.7px}.brandtopic{font-size:9px}.brandbar a{font-size:11px}.footer{flex-direction:column;align-items:flex-start;gap:9px;padding:14px 0 18px}}
+</style>
 
 </head>
 <body>
-<iframe id="codex-visualization" sandbox="allow-scripts" scrolling="no" referrerpolicy="no-referrer" title="ai-architecture-cheatsheet.html" data-srcdoc="&lt;!doctype html&gt;
+<div class="shell"><header class="brandbar"><div class="identity"><span class="monogram" aria-hidden="true">YD</span><div><div class="brandname">YOGESH DESHMUKH</div><div class="brandtopic">QUALITY ENGINEERING × AGENTIC AI</div></div></div><a href="https://www.linkedin.com/in/ypdeshmukh/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></header><main>
+<iframe id="codex-visualization" sandbox="allow-scripts" scrolling="no" referrerpolicy="no-referrer" title="Interactive AI agent architecture guide" data-srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en-GB&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
 &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://persistent.oaistatic.com/plugins/visualize/ https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'&quot;&gt;
-&lt;title&gt;ai-architecture-cheatsheet.html&lt;/title&gt;
+&lt;title&gt;AI Agent Architecture Patterns | Yogesh Deshmukh&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;script type=&quot;application/json&quot; id=&quot;codex-visualization-widget-state&quot;&gt;__CODEX_VISUALIZATION_WIDGET_STATE__&lt;/script&gt;
@@ -1915,39 +1932,101 @@ html&gt;body{padding:0}&lt;/style&gt;
 
 
 
+
 &lt;div id=&quot;ai-architecture-cheatsheet&quot;&gt;
-  &lt;style&gt;
-    #ai-architecture-cheatsheet{display:grid;gap:calc(var(--font-size-base)*1);color:var(--foreground)}
-    #ai-architecture-cheatsheet .choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--font-size-base)*.5)}
-    #ai-architecture-cheatsheet .choice{text-align:left;min-height:68px;display:grid;align-content:center;gap:3px}
-    #ai-architecture-cheatsheet small,#ai-architecture-cheatsheet .hint{color:var(--muted-foreground)}
-    #ai-architecture-cheatsheet .stage{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(220px,.8fr);gap:calc(var(--font-size-base)*1);align-items:center}
-    #ai-architecture-cheatsheet .details{display:grid;gap:calc(var(--font-size-base)*.75)}
-    #ai-architecture-cheatsheet .memory{color:var(--primary);font-weight:500}
-    #ai-architecture-cheatsheet svg{width:100%;overflow:visible}
-    #ai-architecture-cheatsheet svg text{fill:var(--foreground);font-family:inherit;font-size:13px}
-    #ai-architecture-cheatsheet .node{fill:var(--card);stroke:var(--border);stroke-width:1.5}
-    #ai-architecture-cheatsheet .key{fill:color-mix(in srgb,var(--primary) 14%,var(--card));stroke:var(--primary);stroke-width:1.8;transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-in-out infinite}
-    #ai-architecture-cheatsheet .check{fill:color-mix(in srgb,var(--green) 12%,var(--card));stroke:var(--green);stroke-width:1.8;transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-in-out infinite}
-    #ai-architecture-cheatsheet .flow{stroke:var(--primary);stroke-width:2.2;fill:none;stroke-dasharray:7 7;animation:flow 2.4s linear infinite;marker-end:url(#active)}
-    #ai-architecture-cheatsheet .return{stroke:var(--purple);stroke-width:1.9;fill:none;stroke-dasharray:6 6;animation:flow 2.7s linear infinite;marker-end:url(#purple)}
-    @keyframes flow{to{stroke-dashoffset:-28}}@keyframes pulse{50%{transform:scale(1.035)}}
-    @media(prefers-reduced-motion:reduce){#ai-architecture-cheatsheet .flow,#ai-architecture-cheatsheet .return,#ai-architecture-cheatsheet .key,#ai-architecture-cheatsheet .check{animation:none}}
-    @media(max-width:560px){#ai-architecture-cheatsheet .choices{grid-template-columns:repeat(2,minmax(0,1fr))}#ai-architecture-cheatsheet .stage{grid-template-columns:1fr}}
-  &lt;/style&gt;
-  &lt;div&gt;&lt;h2&gt;Practical AI agent patterns&lt;/h2&gt;&lt;p class=&quot;hint&quot;&gt;Select a pattern. Moving arrows show control flow; highlighted blocks show what makes it distinct.&lt;/p&gt;&lt;/div&gt;
-  &lt;div class=&quot;choices&quot; role=&quot;list&quot;&gt;
-    &lt;button class=&quot;btn choice is-selected&quot; data-id=&quot;single&quot; aria-pressed=&quot;true&quot;&gt;&lt;strong&gt;Single agent&lt;/strong&gt;&lt;small&gt;one reasoning role&lt;/small&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn choice&quot; data-id=&quot;tool&quot; aria-pressed=&quot;false&quot;&gt;&lt;strong&gt;Tool-using agent&lt;/strong&gt;&lt;small&gt;agent chooses tools&lt;/small&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn choice&quot; data-id=&quot;workflow&quot; aria-pressed=&quot;false&quot;&gt;&lt;strong&gt;Workflow + agent&lt;/strong&gt;&lt;small&gt;fixed flow + reasoning&lt;/small&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn choice&quot; data-id=&quot;router&quot; aria-pressed=&quot;false&quot;&gt;&lt;strong&gt;Router&lt;/strong&gt;&lt;small&gt;classify then branch&lt;/small&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn choice&quot; data-id=&quot;evaluator&quot; aria-pressed=&quot;false&quot;&gt;&lt;strong&gt;Evaluator&lt;/strong&gt;&lt;small&gt;check before delivery&lt;/small&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn choice&quot; data-id=&quot;supervisor&quot; aria-pressed=&quot;false&quot;&gt;&lt;strong&gt;Supervisor–worker&lt;/strong&gt;&lt;small&gt;delegate by specialty&lt;/small&gt;&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;stage&quot;&gt;&lt;div id=&quot;diagram&quot; role=&quot;img&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;&lt;div class=&quot;card details&quot;&gt;&lt;h3 id=&quot;title&quot;&gt;&lt;/h3&gt;&lt;p class=&quot;memory&quot; id=&quot;memory&quot;&gt;&lt;/p&gt;&lt;p id=&quot;count&quot;&gt;&lt;/p&gt;&lt;p id=&quot;use&quot;&gt;&lt;/p&gt;&lt;p class=&quot;text-small&quot; id=&quot;watch&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
-  &lt;p class=&quot;text-small hint&quot;&gt;&lt;strong&gt;Agent count:&lt;/strong&gt; count only components that independently reason and decide. Models, memory, tools, routers, checks, and APIs do not count as agents. A supervisor plus three specialist workers is &lt;strong&gt;four agents&lt;/strong&gt;, so it is a multi-agent pattern.&lt;/p&gt;
-  &lt;script&gt;
-  (()=&gt;{const r=document.getElementById('ai-architecture-cheatsheet'),d=r.querySelector('#diagram');
+&lt;style&gt;
+html,body{background:#f4f6fa!important;color:#14243c!important}
+body{margin:0!important;padding:0!important}
+#ai-architecture-cheatsheet{--primary:#2365df;--foreground:#14243c;--card:#fff;--border:#dbe2ed;--purple:#7853b9;--green:#158267;font-family:Arial,Helvetica,sans-serif;color:#14243c;font-size:15px;line-height:1.55;display:grid;gap:18px;padding:0 0 6px;background:#f4f6fa}
+#ai-architecture-cheatsheet *{box-sizing:border-box}
+#ai-architecture-cheatsheet h1,#ai-architecture-cheatsheet h2,#ai-architecture-cheatsheet h3,#ai-architecture-cheatsheet p{margin:0}
+#ai-architecture-cheatsheet button{font:inherit;cursor:pointer}
+#ai-architecture-cheatsheet button:focus-visible{outline:3px solid #2365df;outline-offset:4px}
+#ai-architecture-cheatsheet [hidden]{display:none!important}
+#ai-architecture-cheatsheet .eyebrow{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#536885}
+#ai-architecture-cheatsheet .intro{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;padding:24px 0 8px}
+#ai-architecture-cheatsheet h1{font-size:clamp(30px,3.1vw,42px);font-weight:700;letter-spacing:-1.8px;line-height:1.12;max-width:760px;margin:9px 0 12px}
+#ai-architecture-cheatsheet .intro p{max-width:720px;color:#56667c;font-size:15px}
+#ai-architecture-cheatsheet .edition{flex-shrink:0;text-align:right;font-size:12px;color:#62738b;line-height:1.8;padding-bottom:3px}
+#ai-architecture-cheatsheet .edition strong{display:block;color:#2365df;font-size:12px;font-weight:700}
+#ai-architecture-cheatsheet .choices{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+#ai-architecture-cheatsheet .choice{background:#fff;border:1px solid #dbe2ed;border-radius:8px;padding:12px 12px 13px;display:flex;flex-direction:column;gap:3px;text-align:left;min-height:96px;color:#14243c;transition:background .15s,border-color .15s;box-shadow:none}
+#ai-architecture-cheatsheet .choice:hover{border-color:#7da4ea;background:#f5f8ff}
+#ai-architecture-cheatsheet .choice .num{font-size:10px;letter-spacing:1.4px;color:#7c8aa0;font-weight:700;margin-bottom:3px}
+#ai-architecture-cheatsheet .choice strong{font-size:13px;line-height:1.3}
+#ai-architecture-cheatsheet .choice small{font-size:11px;color:#687890;line-height:1.4}
+#ai-architecture-cheatsheet .choice.is-selected{background:#142b4c;border-color:#142b4c;color:#fff;box-shadow:inset 0 -3px #69a1ff}
+#ai-architecture-cheatsheet .choice.is-selected small,#ai-architecture-cheatsheet .choice.is-selected .num{color:#b6d0f8}
+#ai-architecture-cheatsheet .workspace{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:18px;align-items:stretch}
+#ai-architecture-cheatsheet .canvas,#ai-architecture-cheatsheet .details,#ai-architecture-cheatsheet .example{background:white;border:1px solid #dbe2ed;border-radius:10px;overflow:hidden}
+#ai-architecture-cheatsheet .canvas-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 20px;border-bottom:1px solid #e9edf4}
+#ai-architecture-cheatsheet .canvas-head .eyebrow{font-size:10px}
+#ai-architecture-cheatsheet .toggle{display:inline-flex;align-items:center;gap:9px;border:1px solid #cad7ec;border-radius:5px;padding:7px 10px;background:#f6f9ff;color:#2152a0;font-size:11px;font-weight:700}
+#ai-architecture-cheatsheet .switch{display:inline-flex;align-items:center;width:25px;height:14px;border-radius:20px;background:#bcc9db;padding:2px}
+#ai-architecture-cheatsheet .switch:before{content:&quot;&quot;;width:10px;height:10px;background:white;border-radius:50%;transition:transform .18s}
+#ai-architecture-cheatsheet .toggle[aria-expanded=&quot;true&quot;] .switch{background:#2365df}
+#ai-architecture-cheatsheet .toggle[aria-expanded=&quot;true&quot;] .switch:before{transform:translateX(11px)}
+#ai-architecture-cheatsheet .diagram-wrap{margin:16px 20px 10px;border:1px solid transparent;border-radius:7px;padding:14px 12px 8px;transition:background .15s,border-color .15s}
+#ai-architecture-cheatsheet.harness-on .diagram-wrap{background:#f6f9ff;border:1px dashed #8baae0}
+#ai-architecture-cheatsheet .harness-label{display:flex;align-items:center;justify-content:space-between;color:#2458ad;font-size:10px;font-weight:700;letter-spacing:1.3px;margin-bottom:12px}
+#ai-architecture-cheatsheet .harness-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}
+#ai-architecture-cheatsheet .harness-tags span{background:#e8effc;color:#325a95;font-size:10px;padding:4px 8px;border-radius:4px}
+#ai-architecture-cheatsheet #diagram{display:flex;align-items:center;min-height:210px}
+#ai-architecture-cheatsheet svg{display:block;width:100%;height:auto;max-height:210px;overflow:visible}
+#ai-architecture-cheatsheet svg text{fill:var(--foreground);font-family:Arial,Helvetica,sans-serif;font-size:12px}
+#ai-architecture-cheatsheet .node{fill:#f2f5fa;stroke:#cbd6e6;stroke-width:1.3}
+#ai-architecture-cheatsheet .key{fill:#eaf1ff;stroke:#3475dc;stroke-width:1.8}
+#ai-architecture-cheatsheet .check{fill:#e6f6ef;stroke:#158267;stroke-width:1.8}
+#ai-architecture-cheatsheet .flow{stroke:#3475dc;stroke-width:2;fill:none;stroke-dasharray:7 7;animation:agent-flow 2.4s linear infinite;marker-end:url(#active)}
+#ai-architecture-cheatsheet .return{stroke:#7853b9;stroke-width:1.9;fill:none;stroke-dasharray:6 6;animation:agent-flow 2.7s linear infinite;marker-end:url(#purple)}
+@keyframes agent-flow{to{stroke-dashoffset:-28}}
+#ai-architecture-cheatsheet .legend{display:flex;flex-wrap:wrap;gap:16px;padding:0 20px 16px;color:#6a7a91;font-size:10px}
+#ai-architecture-cheatsheet .legend span{display:flex;align-items:center;gap:6px}
+#ai-architecture-cheatsheet .legend i{width:17px;height:2px;background:#3475dc;display:inline-block}
+#ai-architecture-cheatsheet .legend .feedback{background:#7853b9}
+#ai-architecture-cheatsheet .legend .role{width:9px;height:9px;background:#eaf1ff;border:1px solid #3475dc;border-radius:2px}
+#ai-architecture-cheatsheet .harness-note{border-top:1px solid #e4ebf7;margin:0 20px;padding:12px 0 16px;font-size:12px;color:#4c6486}
+#ai-architecture-cheatsheet .details{padding:21px 24px;display:flex;flex-direction:column;gap:12px}
+#ai-architecture-cheatsheet .details h2{font-size:23px;line-height:1.25;letter-spacing:-.6px}
+#ai-architecture-cheatsheet .memory{color:#2365df;font-size:16px;font-weight:600;line-height:1.5}
+#ai-architecture-cheatsheet .count{font-size:13px;color:#3a526f;padding:10px 12px;background:#f1f5fb;border-radius:5px}
+#ai-architecture-cheatsheet .detail-block{display:grid;gap:5px}
+#ai-architecture-cheatsheet .detail-block p{font-size:14px;color:#52627a;line-height:1.65}
+#ai-architecture-cheatsheet .detail-block .eyebrow{font-size:9px;color:#526885}
+#ai-architecture-cheatsheet .quality{padding-top:12px;border-top:1px solid #e9edf4}
+#ai-architecture-cheatsheet .quality .eyebrow{color:#ad7031}
+#ai-architecture-cheatsheet .example{padding:18px 20px;grid-column:1/-1}
+#ai-architecture-cheatsheet .example-top{display:flex;gap:18px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+#ai-architecture-cheatsheet .example h3{font-size:16px;letter-spacing:-.3px}
+#ai-architecture-cheatsheet .sample-label{font-size:10px;color:#7c8ba0}
+#ai-architecture-cheatsheet .request{padding:10px 13px;background:#f5f7fb;border-left:3px solid #8caee5;color:#485d78;font-size:12px;margin-bottom:15px!important}
+#ai-architecture-cheatsheet .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:example-step}
+#ai-architecture-cheatsheet .step{position:relative;padding-left:29px;counter-increment:example-step}
+#ai-architecture-cheatsheet .step:before{content:&quot;0&quot; counter(example-step);position:absolute;left:0;top:1px;font-size:10px;color:#2365df;font-weight:700}
+#ai-architecture-cheatsheet .step strong{display:block;font-size:12px;margin-bottom:4px}
+#ai-architecture-cheatsheet .step p{font-size:12px;color:#607089}
+#ai-architecture-cheatsheet .principle{display:flex;gap:12px;align-items:baseline;font-size:12px;color:#66758b;padding:0 2px 5px}
+#ai-architecture-cheatsheet .principle strong{white-space:nowrap;color:#243d60;font-size:11px}
+@media(min-width:1500px){#ai-architecture-cheatsheet #diagram{min-height:210px}}
+@media(max-width:1000px){#ai-architecture-cheatsheet .choices{grid-template-columns:repeat(3,minmax(0,1fr))}#ai-architecture-cheatsheet .choice{min-height:80px}#ai-architecture-cheatsheet .workspace{grid-template-columns:minmax(0,1.3fr) minmax(270px,1fr)}#ai-architecture-cheatsheet .edition{display:none}}
+@media(max-width:700px){#ai-architecture-cheatsheet{gap:14px}#ai-architecture-cheatsheet .intro{padding-top:18px}#ai-architecture-cheatsheet h1{font-size:32px;letter-spacing:-1px}#ai-architecture-cheatsheet .intro p{font-size:13px}#ai-architecture-cheatsheet .choices{grid-template-columns:repeat(2,minmax(0,1fr))}#ai-architecture-cheatsheet .workspace{grid-template-columns:1fr;gap:14px}#ai-architecture-cheatsheet .details{padding:18px 20px}#ai-architecture-cheatsheet .steps{grid-template-columns:1fr;gap:14px}#ai-architecture-cheatsheet .example-top{align-items:flex-start;flex-direction:column;gap:3px}#ai-architecture-cheatsheet .principle{display:block}#ai-architecture-cheatsheet .principle strong{display:block;margin-bottom:5px}#ai-architecture-cheatsheet .canvas-head{padding:12px;gap:6px}#ai-architecture-cheatsheet .toggle{font-size:10px;padding:7px}#ai-architecture-cheatsheet .diagram-wrap{margin:12px 8px 6px;padding:10px 4px}#ai-architecture-cheatsheet #diagram{min-height:160px}}
+@media(prefers-reduced-motion:reduce){#ai-architecture-cheatsheet .flow,#ai-architecture-cheatsheet .return{animation:none}#ai-architecture-cheatsheet *{transition:none!important}}
+&lt;/style&gt;
+&lt;header class=&quot;intro&quot;&gt;&lt;div&gt;&lt;div class=&quot;eyebrow&quot;&gt;An interactive field guide&lt;/div&gt;&lt;h1&gt;Practical AI agent&lt;br&gt;architecture patterns.&lt;/h1&gt;&lt;p&gt;Understand the flow. Recognise the right pattern. Design for quality.&lt;br&gt;Explore six architectures through one customer-support example.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;edition&quot;&gt;&lt;strong&gt;6 PATTERNS · 1 PRACTICAL LENS&lt;/strong&gt;For builders, learners &amp;amp; quality engineers&lt;/div&gt;&lt;/header&gt;
+&lt;nav class=&quot;choices&quot; aria-label=&quot;Choose an architecture pattern&quot;&gt;
+&lt;button type=&quot;button&quot; class=&quot;choice is-selected&quot; data-id=&quot;single&quot; aria-pressed=&quot;true&quot; aria-controls=&quot;pattern-content&quot;&gt;&lt;span class=&quot;num&quot;&gt;01&lt;/span&gt;&lt;strong&gt;Single agent&lt;/strong&gt;&lt;small&gt;One reasoning role&lt;/small&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;choice&quot; data-id=&quot;tool&quot; aria-pressed=&quot;false&quot; aria-controls=&quot;pattern-content&quot;&gt;&lt;span class=&quot;num&quot;&gt;02&lt;/span&gt;&lt;strong&gt;Tool-using agent&lt;/strong&gt;&lt;small&gt;Agent chooses tools&lt;/small&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;choice&quot; data-id=&quot;workflow&quot; aria-pressed=&quot;false&quot; aria-controls=&quot;pattern-content&quot;&gt;&lt;span class=&quot;num&quot;&gt;03&lt;/span&gt;&lt;strong&gt;Workflow + agent&lt;/strong&gt;&lt;small&gt;Fixed flow + reasoning&lt;/small&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;choice&quot; data-id=&quot;router&quot; aria-pressed=&quot;false&quot; aria-controls=&quot;pattern-content&quot;&gt;&lt;span class=&quot;num&quot;&gt;04&lt;/span&gt;&lt;strong&gt;Router&lt;/strong&gt;&lt;small&gt;Classify, then branch&lt;/small&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;choice&quot; data-id=&quot;evaluator&quot; aria-pressed=&quot;false&quot; aria-controls=&quot;pattern-content&quot;&gt;&lt;span class=&quot;num&quot;&gt;05&lt;/span&gt;&lt;strong&gt;Evaluator&lt;/strong&gt;&lt;small&gt;Check before delivery&lt;/small&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;choice&quot; data-id=&quot;supervisor&quot; aria-pressed=&quot;false&quot; aria-controls=&quot;pattern-content&quot;&gt;&lt;span class=&quot;num&quot;&gt;06&lt;/span&gt;&lt;strong&gt;Supervisor–worker&lt;/strong&gt;&lt;small&gt;Delegate by specialty&lt;/small&gt;&lt;/button&gt;
+&lt;/nav&gt;
+&lt;div class=&quot;workspace&quot; id=&quot;pattern-content&quot;&gt;
+&lt;section class=&quot;canvas&quot; aria-label=&quot;Architecture diagram&quot;&gt;&lt;div class=&quot;canvas-head&quot;&gt;&lt;span class=&quot;eyebrow&quot; id=&quot;diagram-label&quot;&gt;01 / CONTROL FLOW&lt;/span&gt;&lt;button type=&quot;button&quot; id=&quot;harness-toggle&quot; class=&quot;toggle&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;harness-top harness-bottom harness-note&quot;&gt;&lt;span class=&quot;switch&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Where does the harness fit?&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;diagram-wrap&quot;&gt;&lt;div id=&quot;harness-top&quot; hidden&gt;&lt;div class=&quot;harness-label&quot;&gt;&lt;span&gt;THE AGENT HARNESS&lt;/span&gt;&lt;span&gt;SYSTEM BOUNDARY&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;harness-tags&quot;&gt;&lt;span&gt;Instructions &amp;amp; context&lt;/span&gt;&lt;span&gt;Tools &amp;amp; data access&lt;/span&gt;&lt;span&gt;Memory &amp;amp; state&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;diagram&quot; role=&quot;img&quot;&gt;&lt;/div&gt;&lt;div id=&quot;harness-bottom&quot; class=&quot;harness-tags&quot; hidden&gt;&lt;span&gt;Routing &amp;amp; orchestration&lt;/span&gt;&lt;span&gt;Permissions &amp;amp; guardrails&lt;/span&gt;&lt;span&gt;Evaluation &amp;amp; traces&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;legend&quot;&gt;&lt;span&gt;&lt;i&gt;&lt;/i&gt;Control / tool call&lt;/span&gt;&lt;span&gt;&lt;i class=&quot;feedback&quot;&gt;&lt;/i&gt;Result / review feedback&lt;/span&gt;&lt;span&gt;&lt;i class=&quot;role&quot;&gt;&lt;/i&gt;Pattern focus&lt;/span&gt;&lt;/div&gt;
+&lt;p class=&quot;harness-note&quot; id=&quot;harness-note&quot; hidden&gt;The harness is the software around the model: it supplies context and tools, manages state and control flow, and enforces checks. It spans the system; it is not an extra agent. &lt;span id=&quot;harness-specific&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;/section&gt;
+&lt;aside class=&quot;details&quot; aria-live=&quot;polite&quot; aria-atomic=&quot;true&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;Pattern in practice&lt;/div&gt;&lt;h2 id=&quot;title&quot;&gt;&lt;/h2&gt;&lt;p class=&quot;memory&quot; id=&quot;memory&quot;&gt;&lt;/p&gt;&lt;p id=&quot;count&quot; class=&quot;count&quot;&gt;&lt;/p&gt;&lt;div class=&quot;detail-block&quot;&gt;&lt;span class=&quot;eyebrow&quot;&gt;When to use it&lt;/span&gt;&lt;p id=&quot;use&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;detail-block quality&quot;&gt;&lt;span class=&quot;eyebrow&quot;&gt;Quality checkpoint&lt;/span&gt;&lt;p id=&quot;watch&quot;&gt;&lt;/p&gt;&lt;/div&gt;&lt;/aside&gt;
+&lt;section class=&quot;example&quot; aria-labelledby=&quot;example-title&quot;&gt;&lt;div class=&quot;example-top&quot;&gt;&lt;h3 id=&quot;example-title&quot;&gt;Same request. Different architecture.&lt;/h3&gt;&lt;span class=&quot;sample-label&quot;&gt;ILLUSTRATIVE CUSTOMER-SUPPORT EXAMPLE&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;request&quot;&gt;&lt;strong&gt;Customer:&lt;/strong&gt; “My order is late. Can you check its status and tell me what to do next?”&lt;/p&gt;&lt;div id=&quot;example-steps&quot; class=&quot;steps&quot;&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/div&gt;
+&lt;div class=&quot;principle&quot;&gt;&lt;strong&gt;COUNT REASONING ROLES, NOT BOXES.&lt;/strong&gt;&lt;p&gt;Tools, APIs and memory are supporting components. A router or evaluator may use fixed rules or an independent reasoning role. Agent counts depend on the implementation.&lt;/p&gt;&lt;/div&gt;
+&lt;script&gt;
+(()=&gt;{const r=document.getElementById('ai-architecture-cheatsheet'),d=r.querySelector('#diagram');
   const defs='&lt;defs&gt;&lt;marker id=&quot;active&quot; markerWidth=&quot;8&quot; markerHeight=&quot;8&quot; refX=&quot;7&quot; refY=&quot;4&quot; orient=&quot;auto&quot;&gt;&lt;path d=&quot;M0,0 L8,4 L0,8z&quot; fill=&quot;var(--primary)&quot;/&gt;&lt;/marker&gt;&lt;marker id=&quot;purple&quot; markerWidth=&quot;8&quot; markerHeight=&quot;8&quot; refX=&quot;7&quot; refY=&quot;4&quot; orient=&quot;auto&quot;&gt;&lt;path d=&quot;M0,0 L8,4 L0,8z&quot; fill=&quot;var(--purple)&quot;/&gt;&lt;/marker&gt;&lt;/defs&gt;';
   const b=(x,y,w,t,c='node')=&gt;'&lt;rect class=&quot;'+c+'&quot; x=&quot;'+x+'&quot; y=&quot;'+y+'&quot; width=&quot;'+w+'&quot; height=&quot;46&quot; rx=&quot;7&quot;/&gt;&lt;text x=&quot;'+(x+w/2)+'&quot; y=&quot;'+(y+28)+'&quot; text-anchor=&quot;middle&quot;&gt;'+t+'&lt;/text&gt;';
   const p={
@@ -1959,9 +2038,46 @@ html&gt;body{padding:0}&lt;/style&gt;
   supervisor:{t:'6. Supervisor–worker',m:'“Delegate by specialty, then synthesize.”',u:'Use only when distinct specialist reasoning roles justify coordination.',w:'Workers do not automatically receive the full conversation—define their context and return contract.',s:()=&gt;b(10,67,82,'Request')+'&lt;path class=&quot;flow&quot; d=&quot;M92 90H140&quot;/&gt;'+b(140,67,120,'Supervisor','key')+'&lt;path class=&quot;flow&quot; d=&quot;M260 90L320 35&quot;/&gt;&lt;path class=&quot;flow&quot; d=&quot;M260 90H320&quot;/&gt;&lt;path class=&quot;flow&quot; d=&quot;M260 90L320 145&quot;/&gt;'+b(320,12,122,'Research worker','key')+b(320,67,122,'Data worker','key')+b(320,122,122,'Review worker','key')+'&lt;path class=&quot;return&quot; d=&quot;M442 35L486 74&quot;/&gt;&lt;path class=&quot;return&quot; d=&quot;M442 90H486&quot;/&gt;&lt;path class=&quot;return&quot; d=&quot;M442 145L486 106&quot;/&gt;'+b(486,67,64,'Reply')}
   };
   const counts={single:'Agent count: 1. The model, memory, and calculator tool are components used by that one agent.',tool:'Agent count: 1. The tool does work when called; it does not reason independently.',workflow:'Agent count: usually 1. The surrounding workflow controls the sequence but is not an agent.',router:'Agent count: 0 or 1. The router can be fixed rules (0) or use one classifier agent (1).',evaluator:'Agent count: usually 1–2. The generator is one agent; an independent model evaluator would be another.',supervisor:'Agent count: 4 in this example: 1 supervisor + 3 reasoning workers. Yes—this is a multi-agent pattern.'};
-  function show(id){const x=p[id];d.innerHTML='&lt;svg viewBox=&quot;0 0 560 180&quot; aria-label=&quot;'+x.t+' diagram&quot;&gt;'+defs+x.s()+'&lt;/svg&gt;';r.querySelector('#title').textContent=x.t;r.querySelector('#memory').textContent=x.m;r.querySelector('#count').textContent=counts[id];r.querySelector('#use').textContent=x.u;r.querySelector('#watch').textContent='Watch out: '+x.w;r.querySelectorAll('.choice').forEach(q=&gt;{const on=q.dataset.id===id;q.classList.toggle('is-selected',on);q.setAttribute('aria-pressed',String(on))});window.openai?.setWidgetState?.({modelContent:{selectedPattern:id},privateContent:null}).catch(()=&gt;{})}
-  r.querySelectorAll('.choice').forEach(q=&gt;q.addEventListener('click',()=&gt;show(q.dataset.id)));show(window.openai?.widgetState?.modelContent?.selectedPattern in p?window.openai.widgetState.modelContent.selectedPattern:'single');window.addEventListener('openai:set_globals',e=&gt;{const id=e.detail?.globals?.widgetState?.modelContent?.selectedPattern;if(p[id])show(id)})})();
-  &lt;/script&gt;
+
+const examples={
+single:[['Understand the request','One agent interprets the message and the context already provided.'],['Use available context','It explains the supplied tracking update; without a live connection, it cannot verify current order status.'],['Give the next step','It drafts a clear reply and asks for missing information rather than inventing a delivery date.']],
+tool:[['Decide what to look up','The agent recognises that a live order-status check is needed.'],['Call an authorised tool','An order API returns tracking and shipment details for the verified customer.'],['Ground the response','The agent uses the tool result to explain the delay and permitted next steps.']],
+workflow:[['Prepare the case','Fixed steps verify the customer, retrieve the order, and collect tracking data.'],['Let the agent interpret','One agent explains the tracking information in plain language and drafts a reply.'],['Apply a fixed rule','The workflow opens a support ticket if the delay exceeds the defined threshold.']],
+router:[['Classify the message','A classifier identifies an order-status enquiry; fixed rules are also possible.'],['Route to the right path','Order enquiries go to tracking; product questions go to knowledge; unclear requests go to fallback.'],['Handle the selected path','The tracking path retrieves the relevant status and prepares the next step.']],
+evaluator:[['Generate a grounded draft','A generator prepares a response using verified tracking information.'],['Check against criteria','A rule-based or model-based evaluator checks evidence, policy compliance, and unsupported promises.'],['Deliver or revise','A passing draft is sent; a failed draft is revised within a retry limit or escalated.']],
+supervisor:[['Delegate the case','A supervisor assigns tracking, policy, and response-review tasks to specialist reasoning workers.'],['Work within clear contracts','Each worker receives the relevant context and returns evidence and a defined result.'],['Synthesise the reply','The supervisor reconciles the findings into one answer. This example has four reasoning roles.']]
+};
+const harness={
+single:'Here it supplies the agent instructions and available context, and controls the run.',
+tool:'Here it exposes authorised tools, validates their inputs, and returns results to the agent.',
+workflow:'Here it runs the fixed sequence and passes the right context into the reasoning step.',
+router:'Here it validates routing labels and defines a safe fallback path.',
+evaluator:'Here it defines acceptance criteria, retry limits, and escalation rules.',
+supervisor:'Here it manages worker context, tool permissions, handoffs, and result aggregation.'
+};
+const checks={
+single:'State what is known and what is missing. Do not claim a live status check without a tool.',
+tool:'Verify identity, validate tool inputs, and handle tool failures before taking action.',
+workflow:'Validate inputs and outputs at each boundary. Define failure and escalation paths.',
+router:'Validate categories and confidence. Provide a fallback for ambiguous or unsupported requests.',
+evaluator:'Use explicit criteria and evidence. Bound retries; a model reviewer is not proof of factual accuracy.',
+supervisor:'Define worker responsibilities, context and return contracts. Resolve conflicting evidence.'
+};
+p.single.s=()=&gt;b(16,67,92,'Request')+'&lt;path class=&quot;flow&quot; d=&quot;M108 90H190&quot;/&gt;'+b(190,67,128,'AI Agent','key')+'&lt;path class=&quot;flow&quot; d=&quot;M318 90H450&quot;/&gt;'+b(450,67,94,'Reply')+'&lt;path class=&quot;flow&quot; d=&quot;M245 67V28H155&quot;/&gt;'+b(48,4,107,'Chat model')+'&lt;path class=&quot;flow&quot; d=&quot;M255 113V150H365&quot;/&gt;'+b(365,126,105,'Context / memory');
+counts.single='1 reasoning role. The model and supplied context support that role.';
+counts.tool='1 reasoning role. An API call does not add another agent.';
+counts.workflow='Usually 1 reasoning role within a predefined sequence.';
+counts.router='0 or 1 reasoning role in the router itself; downstream agents are counted separately.';
+counts.evaluator='Depends on implementation: a fixed check adds no agent; an independent reasoning evaluator may add one.';
+counts.supervisor='4 reasoning roles here: 1 supervisor + 3 specialist workers.';
+let current='single';
+function show(id){if(!p[id])return;current=id;const x=p[id];d.innerHTML='&lt;svg viewBox=&quot;0 0 560 180&quot; aria-hidden=&quot;true&quot;&gt;'+defs+x.s()+'&lt;/svg&gt;';d.setAttribute('aria-label',x.t+' architecture: '+x.m);r.querySelector('#title').textContent=x.t.replace(/^\d\. /,'');r.querySelector('#diagram-label').textContent='0'+(Object.keys(p).indexOf(id)+1)+' / CONTROL FLOW';r.querySelector('#memory').textContent=x.m;r.querySelector('#count').textContent=counts[id];r.querySelector('#use').textContent=x.u;r.querySelector('#watch').textContent=checks[id];r.querySelector('#harness-specific').textContent=harness[id];r.querySelector('#example-steps').innerHTML=examples[id].map(([t,s])=&gt;'&lt;div class=&quot;step&quot;&gt;&lt;strong&gt;'+t+'&lt;/strong&gt;&lt;p&gt;'+s+'&lt;/p&gt;&lt;/div&gt;').join('');r.querySelectorAll('.choice').forEach(q=&gt;{const on=q.dataset.id===id;q.classList.toggle('is-selected',on);q.setAttribute('aria-pressed',String(on))});window.openai?.setWidgetState?.({modelContent:{selectedPattern:id},privateContent:null}).catch(()=&gt;{})}
+r.querySelectorAll('.choice').forEach(q=&gt;q.addEventListener('click',()=&gt;show(q.dataset.id)));
+r.querySelector('#harness-toggle').addEventListener('click',e=&gt;{const btn=e.currentTarget,on=btn.getAttribute('aria-expanded')!=='true';btn.setAttribute('aria-expanded',String(on));r.classList.toggle('harness-on',on);['harness-top','harness-bottom','harness-note'].forEach(id=&gt;r.querySelector('#'+id).hidden=!on)});
+show(window.openai?.widgetState?.modelContent?.selectedPattern in p?window.openai.widgetState.modelContent.selectedPattern:'single');
+window.addEventListener('openai:set_globals',e=&gt;{const id=e.detail?.globals?.widgetState?.modelContent?.selectedPattern;if(p[id]&amp;&amp;id!==current)show(id)});
+})();
+&lt;/script&gt;
 &lt;/div&gt;
 
 
@@ -2554,7 +2670,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
-"></iframe>
+"></iframe></main><footer class="footer"><div><strong>Created by Yogesh Deshmukh</strong><br>Connecting Quality Engineering with Agentic AI</div><nav aria-label="Resources"><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">Pattern reference ↗</a><a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/" target="_blank" rel="noopener noreferrer">Harness reference ↗</a><a href="https://github.com/yogeshdeshmukh86/-ai-architecture-cheatsheet" target="_blank" rel="noopener noreferrer">View source ↗</a></nav></footer></div>
 
 <script>(() => {
   const frame = document.getElementById("codex-visualization");
